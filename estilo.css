@@ -1,0 +1,52 @@
+body {
+    background-image: url("wallstarwars.jpg");
+}
+
+#entrada {
+    border: 20px;
+        border-top-style: none;
+        border-right-style: none;
+        border-bottom-style: none;
+        border-left-style: none;
+    padding: 20px;
+    margin: 20px;
+    border-style: ridge;
+}
+.loquequiera {
+    border: 20px;
+        border-top-style: none;
+        border-right-style: none;
+        border-bottom-style: none;
+        border-left-style: none;
+    padding: 20px;
+    margin: 20px;
+    border-style: ridge;
+}
+.elemento {
+    font-weight: bolder;
+}
+li.txtnormal, button.txtnormal {
+    font-weight: normal;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.txtnormal {
+    font-size: large;
+}
+ul {
+    border-radius: 10px;
+}
+ul#listado > li {
+    color: coral;
+}
+img {
+    width: 100%;
+}
+
+div.flex {
+    display: inline-flex;
+}
+@media only screen and (max-width: 600px) {
+    div.flex {
+        display: unset;
+    }
+}
