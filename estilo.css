@@ -1,5 +1,7 @@
 body {
-    background-image: url("wallstarwars.jpg");
+    background-color: #D4D4D4; 
+    background-size: contain;
+    color: #BF01C8;
 }
 
 #entrada {
@@ -44,9 +46,25 @@ img {
 
 div.flex {
     display: inline-flex;
+    width: 60%;
+}
+div.flex > img, div.flex > p, div.flex > div {
+    width: 50%;
 }
 @media only screen and (max-width: 600px) {
     div.flex {
         display: unset;
     }
+}
+#newformat {
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 23px;
+    border-style: outset;
+    border-radius: 17px;
+    border-width: 20;
+    border-top-color: maroon;
+    border-left-color: midnightblue;
+    border-right-color: midnightblue;
+    border-bottom-color: maroon;
 }
