@@ -36,6 +36,9 @@ body {
 .centrartxt {
     text-align: center;
 }
+.falsoh4 {
+    font-weight: bold;
+}
 
 .presentaciontxt {
     font-family: 'Times New Roman', Times, serif;
@@ -74,6 +77,7 @@ body {
 #listaproyectos {
     background-color: lightslategray;
     padding: 5%;
+    box-sizing: border-box;
     font-size: 1rem;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -81,8 +85,12 @@ body {
 #listalenguajes {
     background-color: lightsteelblue;
     padding: 5%;
+    box-sizing: border-box;
     font-size: 1rem;
     font-family: 'Times New Roman', Times, serif;
+}
+#listalenguajes > div > h4 {
+    margin-top: 0px;
 }
 
 a {
@@ -92,61 +100,57 @@ a {
 a:hover {
     color: purple;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***** BASURA ******/
-#entrada {
-    border: 20px;
-        border-top-style: none;
-        border-right-style: none;
-        border-bottom-style: none;
-        border-left-style: none;
-    padding: 20px;
-    margin: 20px;
-    border-style: ridge;
-}
-.loquequiera {
-    border: 20px;
-        border-top-style: none;
-        border-right-style: none;
-        border-bottom-style: none;
-        border-left-style: none;
-    padding: 20px;
-    margin: 20px;
-    border-style: ridge;
-}
-.elemento {
-    font-weight: normal;
-}
-li.txtnormal, button.txtnormal {
-    font-weight: normal;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-.txtnormal {
-    font-size: large;
-}
 ul {
-    border-radius: 10px;
+    list-style-type: none;
 }
-ul#listado > li {
-    color: coral;
-}
-img {
-    width: 100%;
-}
-/***** FIN BASURA ******/
 
+
+
+
+/***** CREAR UN FLIP CARD *****/
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    padding-top: 3%;
+    box-sizing: border-box;
+}
+ 
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+    height: 300px;
+}
+
+.flip-card-back {
+    background-color: darksalmon;
+    color: black;
+    min-height: 300px;
+    transform: rotateY(180deg) translateY(-50%) translateY(-300px);
+    padding-right: 10%;
+    box-sizing: border-box;
+}
 
 
 
@@ -205,6 +209,14 @@ div.flex > img, div.flex > p, div.flex > div {
         height: auto;
     }
 
+    #listalenguajes {
+        display: inline-block;
+        height: auto;
+    }
+    #listalenguajes > div > h4 {
+        margin-top: revert;
+        text-align: center;
+    }
 }
 
 /*@media only screen and (max-width: 1100px)  {
