@@ -65,25 +65,43 @@ function nombreUser() {
     }
 }*/
 
-
 function ajustarTamano(frontal, trasera) {
-    console.log(frontal.clientHeight);
-    //console.log(ventanaFrontal[0].clientWidth);
 
-    console.log(ventanaTrasera[0].clientHeight);
-    //console.log(ventanaTrasera[0].clientWidth);
+    if (frontal.clientHeight > trasera.clientHeight) {
+         console.log(frontal.clientHeight)
+         trasera.style.height = frontal.clientHeight + "px";
+         return frontal.clientHeight;
+    } else {
+        console.log(trasera.clientHeight)
+        frontal.style.height = trasera.clientHeight + "px";
+        return trasera.clientHeight
+    }
+    
 }
 
+/* #######################################
+ * Pendiente, una función que dados 2 div:
+ *        1) obtenga la altura del primero y lo guarde en una variable
+ *        2) modifique la altura del segundo para ser igual a la variable
+ *        3) modifique el css del segundo para ser:    transform: rotateY(180deg) translateY(-50%) translateY({{VARIABLEAQUI}}px);
+##########################################*/
 
 
+function main() {
+
+    let ventanaFrontal = document.getElementsByClassName('flip-card-front');
+    let ventanaTrasera = document.getElementsByClassName('flip-card-back');
+    ajustarTamano(ventanaFrontal[0], ventanaTrasera[0])
 
 
-let ventanaFrontal = document.getElementsByClassName('flip-card-front');
-let ventanaTrasera = document.getElementsByClassName('flip-card-inner');
-ajustarTamano(ventanaFrontal[0], ventanaTrasera)
+    let izquierda = document.getElementById('listaproyectos');
+    let derecha = document.getElementById('listalenguajes');
+    ajustarTamano(izquierda, derecha)
 
+    let identidad = document.getElementById('identidad');
+    let presentacion = document.getElementById('fondopresent');
+    ajustarTamano(identidad, presentacion)
 
+}
+main();
 
-let izquierda = document.getElementById('listaproyectos');
-let derecha = document.getElementById('listalenguajes');
-ajustarTamano(izquierda, derecha)
