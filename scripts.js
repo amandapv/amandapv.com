@@ -13,7 +13,6 @@ function sumar(a, b) {
     let suma = a + b;
     return suma;
 }
-console.log (sumar (1,2))
 
 /*document.querySelector('html').onclick = function() {
     alert('Ouch! Deja de pincharme!');
@@ -67,12 +66,10 @@ function nombreUser() {
 
 function ajustarTamano(frontal, trasera) {
 
-    if (frontal.clientHeight > trasera.clientHeight) {
-         console.log(frontal.clientHeight)
+    if (frontal.clientHeight > trasera.clientHeight) {  
          trasera.style.height = frontal.clientHeight + "px";
          return frontal.clientHeight;
     } else {
-        console.log(trasera.clientHeight)
         frontal.style.height = trasera.clientHeight + "px";
         return trasera.clientHeight
     }
@@ -85,6 +82,25 @@ function ajustarTamano(frontal, trasera) {
  *        2) modifique la altura del segundo para ser igual a la variable
  *        3) modifique el css del segundo para ser:    transform: rotateY(180deg) translateY(-50%) translateY({{VARIABLEAQUI}}px);
 ##########################################*/
+
+
+
+
+function ajustarpt2(ajuste1, ajuste2) {
+
+    if (ajuste1.clientHeight > ajuste2.clientHeight) {
+        ajuste2.style.height = ajuste1.clientHeight + "px";
+        return ajuste1.clientHeight;
+    } else {
+        ajuste1.style.height = ajuste2.clientHeight + "px";
+        return ajuste2.clientHeight
+    }
+
+
+}
+ajustarpt2()
+
+
 
 
 function main() {
@@ -102,6 +118,16 @@ function main() {
     let presentacion = document.getElementById('fondopresent');
     ajustarTamano(identidad, presentacion)
 
+    let div1 = document.getElementsByClassName('flip-card')
+    let div2 = document.getElementById('listalenguajes')
+    ajustarpt2(div1, div2)
+
+    let trans = document.getElementsByClassName('flip-card-back')
+
+    /*var dato1 = sumar(1,2);
+    var dato2 = sumar(23, 5);
+    var dato3 = sumar(5, 7);*/
+
 }
 main();
-
+ 
