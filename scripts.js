@@ -88,46 +88,45 @@ function ajustarTamano(frontal, trasera) {
 
 function ajustarpt2(ajuste1, ajuste2) {
 
-    if (ajuste1.clientHeight > ajuste2.clientHeight) {
-        ajuste2.style.height = ajuste1.clientHeight + "px";
-        return ajuste1.clientHeight;
-    } else {
-        ajuste1.style.height = ajuste2.clientHeight + "px";
-        return ajuste2.clientHeight
-    }
-
-
+    let altura = ajuste1.clientHeight
+    ajuste2.style.height = altura + "px";
+    ajuste2.style.transform = 'rotateY(180deg) translateY(-50%) translateY(-'+ altura +'px)';
+    console.log('rotateY(180deg) translateY(-50%) translateY(-'+ altura +'px)');
 }
-ajustarpt2()
 
 
 
 
 function main() {
+    if(document.width < 1600) {
+        /* MODO ESCRITORIO */
+        let ventanaFrontal = document.getElementsByClassName('flip-card-front');
+        let ventanaTrasera = document.getElementsByClassName('flip-card-back');
+        ajustarTamano(ventanaFrontal[0], ventanaTrasera[0])
 
-    let ventanaFrontal = document.getElementsByClassName('flip-card-front');
-    let ventanaTrasera = document.getElementsByClassName('flip-card-back');
-    ajustarTamano(ventanaFrontal[0], ventanaTrasera[0])
+        let izquierda = document.getElementById('listaproyectos');
+        let derecha = document.getElementById('listalenguajes');
+        ajustarTamano(izquierda, ventanaTrasera[0]);
+        ajustarTamano(izquierda, derecha);
 
+        let identidad = document.getElementById('identidad');
+        let presentacion = document.getElementById('fondopresent');
+        ajustarTamano(identidad, presentacion);
 
-    let izquierda = document.getElementById('listaproyectos');
-    let derecha = document.getElementById('listalenguajes');
-    ajustarTamano(izquierda, derecha)
+        ajustarpt2(ventanaFrontal[0], ventanaTrasera[0]);
+        
+    } else {
+        /* MODO MÓVIL */
 
-    let identidad = document.getElementById('identidad');
-    let presentacion = document.getElementById('fondopresent');
-    ajustarTamano(identidad, presentacion)
+        let ventanaFrontal = document.getElementsByClassName('flip-card-front');
+        let ventanaTrasera = document.getElementsByClassName('flip-card-back');
+        ajustarTamano(ventanaFrontal[0], ventanaTrasera[0])
 
-    let div1 = document.getElementsByClassName('flip-card')
-    let div2 = document.getElementById('listalenguajes')
-    ajustarpt2(div1, div2)
-
-    let trans = document.getElementsByClassName('flip-card-back')
-
-    /*var dato1 = sumar(1,2);
-    var dato2 = sumar(23, 5);
-    var dato3 = sumar(5, 7);*/
-
+        let izquierda = document.getElementById('listaproyectos');
+        ajustarTamano(izquierda, ventanaTrasera[0]);
+        ajustarpt2(ventanaFrontal[0], ventanaTrasera[0]);
+    }
 }
 main();
- 
+
+document.addEventListener('resize', main());

@@ -140,8 +140,6 @@ ul {
 .flip-card-back {
     background-color: darksalmon;
     color: black;
-    min-height: 300px;
-    transform: rotateY(180deg) translateY(-50%) translateY(-300px);
     padding-right: 10%;
     box-sizing: border-box;
 }
