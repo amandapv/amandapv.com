@@ -91,14 +91,20 @@ function ajustarpt2(ajuste1, ajuste2) {
     let altura = ajuste1.clientHeight
     ajuste2.style.height = altura + "px";
     ajuste2.style.transform = 'rotateY(180deg) translateY(-50%) translateY(-'+ altura +'px)';
-    console.log('rotateY(180deg) translateY(-50%) translateY(-'+ altura +'px)');
+}
+
+function boton(div1, bool) {
+    if(bool) {
+        div1.style.transform = 'rotateY(180deg)';
+    } else {
+        div1.style.transform = 'none';
+    } 
 }
 
 
 
-
 function main() {
-    if(document.width < 1600) {
+    if(document.width > 1600) {
         /* MODO ESCRITORIO */
         let ventanaFrontal = document.getElementsByClassName('flip-card-front');
         let ventanaTrasera = document.getElementsByClassName('flip-card-back');
@@ -112,7 +118,6 @@ function main() {
         let identidad = document.getElementById('identidad');
         let presentacion = document.getElementById('fondopresent');
         ajustarTamano(identidad, presentacion);
-
         ajustarpt2(ventanaFrontal[0], ventanaTrasera[0]);
         
     } else {
@@ -126,6 +131,17 @@ function main() {
         ajustarTamano(izquierda, ventanaTrasera[0]);
         ajustarpt2(ventanaFrontal[0], ventanaTrasera[0]);
     }
+
+    let tarjeta1 = document.getElementsByClassName('flip-card-inner');
+    let habilitar = document.getElementsByClassName('habilitar');
+    let deshabilitar = document.getElementsByClassName('deshabilitar');
+
+    habilitar[0].addEventListener("click", function() {
+        boton(tarjeta1[0], true);
+    });
+    deshabilitar[0].addEventListener("click", function() {
+        boton(tarjeta1[0], false);
+    });
 }
 main();
 

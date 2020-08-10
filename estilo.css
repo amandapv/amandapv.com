@@ -101,6 +101,13 @@ ul {
 }
 
 
+.habilitar  {
+    color: darkslategrey;
+}
+
+.deshabilitar {
+    color: forestgreen;
+}
 
 
 /***** CREAR UN FLIP CARD *****/
@@ -117,9 +124,6 @@ ul {
     transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
 
 .flip-card-front, .flip-card-back {
     position: relative;
@@ -145,6 +149,14 @@ ul {
 }
 
 
+.gifGatito {
+    position: absolute;
+
+    bottom: 15%;
+    right: 15%;
+    height: 15%;
+    width: 15%;
+}
 
 
 /***** PONER EN HORIZONTAL LOS HIJOS ******/
@@ -208,6 +220,10 @@ div.flex > img, div.flex > p, div.flex > div {
     #listalenguajes > div > h4 {
         margin-top: revert;
         text-align: center;
+    }
+
+    #gifCatmv {
+        display: none;
     }
 }
 
