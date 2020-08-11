@@ -1,12 +1,12 @@
 body {
-    background-color: rgba(127, 255, 234, 0.678); 
+    background-color: #B5838d; 
     background-size: contain;
     color: black;
 }
 
 /***** MARGEN DE LA WEB ******/
 #bloqueborde {
-    margin-top: 6%;
+    margin-top: 8%;
     margin-left: 15%;
     margin-right: 15%;
     margin-bottom: 15%;
@@ -47,7 +47,7 @@ body {
 }
 
 #fondonombre {
-    background-color: rgba(40, 10, 80, 0.3);
+    background-color: #CAF0F8;
 }
 
 #fondoimagen {
@@ -64,7 +64,7 @@ body {
 }
 
 #fondopresent {
-    background-color: rgba(202, 34, 34, 0.308);
+    background-color: #DBCDF0;
     text-align: justify;
     box-sizing: border-box;
 }
@@ -109,6 +109,37 @@ ul {
     color: forestgreen;
 }
 
+.botonmod {
+    position: absolute;
+    top: 8%;
+    right: 4%;
+    border-radius: 28px;
+    border-width: 15px;
+    border-style: ridge;
+    border-color: maroon;
+    background-color: rgb(219, 226, 233);
+    background-image: -moz-linear-gradient(to bottom, #c09fb0, #4494c5);
+    font-size: 13px;
+    color: black;
+}
+
+.enlaceCV {
+    font-size: 18px;
+    padding-top: 1.2%;
+}
+.enlaceLikd {
+    font-size: 18px;
+    text-align: right;
+    padding-bottom:1%;
+}
+
+#colorLink {
+    color: antiquewhite;
+}
+#colorLink2 {
+    color: antiquewhite;
+}
+
 
 /***** CREAR UN FLIP CARD *****/
 .flip-card {
@@ -142,7 +173,7 @@ ul {
 }
 
 .flip-card-back {
-    background-color: darksalmon;
+    background-color: #D8E2DC;
     color: black;
     padding-right: 10%;
     box-sizing: border-box;
@@ -152,10 +183,10 @@ ul {
 .gifGatito {
     position: absolute;
 
-    bottom: 15%;
+    bottom: 10%;
     right: 15%;
     height: 15%;
-    width: 15%;
+    /*width: 15%;*/
 }
 
 
@@ -196,7 +227,7 @@ div.flex > img, div.flex > p, div.flex > div {
         width: 100%;
         box-sizing: border-box;
         height: 220px;
-        background-color: rgba(40, 10, 80, 0.3);
+        background-color: #CAF0F8;
     }
 
     #fondoimagen > img {
