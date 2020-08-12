@@ -1,7 +1,7 @@
 body {
     background-color: #B5838d; 
     background-size: contain;
-    color: black;
+    color: #3B3641;
 }
 
 /***** MARGEN DE LA WEB ******/
@@ -9,7 +9,9 @@ body {
     margin-top: 8%;
     margin-left: 15%;
     margin-right: 15%;
-    margin-bottom: 15%;
+}
+.bloquesombra {
+    box-shadow: 5px 5px 5px 6px rgba(0,0,0,0.25);
 }
 
 /***** FILA DE ARRIBA ******/
@@ -42,16 +44,22 @@ body {
 
 .presentaciontxt {
     font-family: 'Times New Roman', Times, serif;
+    border-top: 1px solid #6d6875;
+    border-right: 1px solid #6d6875;
     font-size: 0.85rem;
     padding: 5%;
 }
 
 #fondonombre {
-    background-color: #CAF0F8;
+    background-color: #E5989B;
+    border-top: 1px solid #6d6875;
+    border-left: 1px solid #6d6875;
 }
 
 #fondoimagen {
-    background-color: black;
+    background-color: #E5989B;
+    border-right: 1px solid #6d6875;
+    border-top: 1px solid #6d6875;
     text-align: center;
 }
 
@@ -64,14 +72,14 @@ body {
 }
 
 #fondopresent {
-    background-color: #DBCDF0;
+    background-color: #FFCDB2;
     text-align: justify;
     box-sizing: border-box;
 }
 
 /***** FILA DE ABAJO ******/
 #listaproyectos {
-    background-color: lightslategray;
+    background-color: #6D6875;
     padding: 5%;
     box-sizing: border-box;
     font-size: 0.9rem;
@@ -79,7 +87,10 @@ body {
 }
 
 #listalenguajes {
-    background-color: lightsteelblue;
+    background-color: #FFB4A2;
+    border-top: 1px solid #6d6875;
+    border-bottom: 1px solid #6d6875;
+    border-right: 1px solid #6d6875;
     padding: 5%;
     box-sizing: border-box;
     font-size: 0.9rem;
@@ -111,16 +122,25 @@ ul {
 
 .botonmod {
     position: absolute;
-    top: 8%;
+    top: 4%;
     right: 4%;
     border-radius: 28px;
-    border-width: 15px;
+    border-width: 6px;
     border-style: ridge;
-    border-color: maroon;
+    border-color: #6D6875;
     background-color: rgb(219, 226, 233);
-    background-image: -moz-linear-gradient(to bottom, #c09fb0, #4494c5);
+    background-image: -moz-linear-gradient(to bottom, #c09fb0, #887591);
     font-size: 13px;
     color: black;
+}
+
+.gifGatito {
+    text-align: right;
+    width: 87%;
+}
+#gifCatmv {
+    height: 250px;
+    /*width: 15%;*/
 }
 
 .enlaceCV {
@@ -148,9 +168,8 @@ ul {
 }
 
 .flip-card-inner {
-    /*position: relative;*/
     width: 100%;
-    height: 300px;
+    min-height: 300px;
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
@@ -165,29 +184,21 @@ ul {
     backface-visibility: hidden;
     padding-top: 3%;
     box-sizing: border-box;
+    box-shadow: 5px 5px 5px 6px rgba(0,0,0,0.25);
 }
  
 .flip-card-front {
-    background-color: #bbb;
+    background-color: #FFCDB2;
     color: black;
 }
 
 .flip-card-back {
-    background-color: #D8E2DC;
+    background-color: #E2AAA9;
     color: black;
     padding-right: 10%;
     box-sizing: border-box;
 }
 
-
-.gifGatito {
-    position: absolute;
-
-    bottom: 10%;
-    right: 15%;
-    height: 15%;
-    /*width: 15%;*/
-}
 
 
 /***** PONER EN HORIZONTAL LOS HIJOS ******/
@@ -200,8 +211,19 @@ div.flex > img, div.flex > p, div.flex > div {
     width: 50%;
 }
 
-/***** REGLAS PARA PANTALLAS PEQUENHAS ******/
-@media only screen and (max-width: 1600px)  {
+/***** REGLAS PARA PANTALLAS MEDIANAS ******/
+@media only screen and (max-width: 1600px) {
+    #bloqueborde {
+        margin-left: 4%;
+        margin-right: 4%;
+    }
+}
+
+/***** REGLAS PARA PANTALLAS PEQUEÑAS ******/
+@media only screen and (max-width: 992px) {
+    #bloqueborde {
+        margin-bottom: 15%;
+    }
 
     /***** PONER EN VERTICAL ******/
     div.flex {
@@ -218,6 +240,9 @@ div.flex > img, div.flex > p, div.flex > div {
         width: 100%;
         height: auto;
     }
+    .bordenombre {
+        margin-top: 0%;
+    }
     .bordesubnombre {
         margin-top: 5%;
         margin-bottom: 0px;
@@ -227,7 +252,8 @@ div.flex > img, div.flex > p, div.flex > div {
         width: 100%;
         box-sizing: border-box;
         height: 220px;
-        background-color: #CAF0F8;
+        border: none;
+        background-color: #E5989B;
     }
 
     #fondoimagen > img {
@@ -258,8 +284,9 @@ div.flex > img, div.flex > p, div.flex > div {
     }
 }
 
-/*@media only screen and (max-width: 1100px)  {
+/***** REGLAS PARA PANTALLAS DE RELOJ ******/
+@media only screen and (max-width: 260px) {
     #fondoimagen {
-        width: 100%;
+        display: none;
     }
-}*/
+}

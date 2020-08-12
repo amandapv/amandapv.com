@@ -65,7 +65,8 @@ function nombreUser() {
 }*/
 
 function ajustarTamano(frontal, trasera) {
-
+    frontal.style.height = "";
+    trasera.style.height = "";
     if (frontal.clientHeight > trasera.clientHeight) {  
          trasera.style.height = frontal.clientHeight + "px";
          return frontal.clientHeight;
@@ -76,21 +77,11 @@ function ajustarTamano(frontal, trasera) {
     
 }
 
-/* #######################################
- * Pendiente, una función que dados 2 div:
- *        1) obtenga la altura del primero y lo guarde en una variable
- *        2) modifique la altura del segundo para ser igual a la variable
- *        3) modifique el css del segundo para ser:    transform: rotateY(180deg) translateY(-50%) translateY({{VARIABLEAQUI}}px);
-##########################################*/
-
-
-
 
 function ajustarpt2(ajuste1, ajuste2) {
-
-    let altura = ajuste1.clientHeight
-    ajuste2.style.height = altura + "px";
-    ajuste2.style.transform = 'rotateY(180deg) translateY(-50%) translateY(-'+ altura +'px)';
+    ajustarTamano(ajuste1, ajuste2);
+    let altura = ajuste1.clientHeight;
+    ajuste2.style.transform = 'translateY(-50%) translateY(-'+ altura +'px) rotateY(180deg)';
 }
 
 function boton(div1, bool) {
@@ -104,35 +95,29 @@ function boton(div1, bool) {
 
 
 function main() {
-    if(document.width > 1600) {
-        /* MODO ESCRITORIO */
-        let ventanaFrontal = document.getElementsByClassName('flip-card-front');
-        let ventanaTrasera = document.getElementsByClassName('flip-card-back');
-        ajustarTamano(ventanaFrontal[0], ventanaTrasera[0])
+    /* Iguala las caras de las tarjetas */
+    let ventanaFrontal = document.getElementsByClassName('flip-card-front');
+    let ventanaTrasera = document.getElementsByClassName('flip-card-back');
+    let tarjeta1 = document.getElementsByClassName('flip-card-inner');
+    tarjeta1[0].style.height = ajustarTamano(ventanaFrontal[0], ventanaTrasera[0]) + "px";
+    
 
-        let izquierda = document.getElementById('listaproyectos');
-        let derecha = document.getElementById('listalenguajes');
-        ajustarTamano(izquierda, ventanaTrasera[0]);
+    /* Iguala las tarjetas a su contenedor */
+    let izquierda = document.getElementById('listaproyectos');
+    let derecha = document.getElementById('listalenguajes');
+    ajustarTamano(izquierda, ventanaTrasera[0]) + "px";
+
+    if(document.width > 992) {
+        /* MODO ESCRITORIO */
         ajustarTamano(izquierda, derecha);
 
         let identidad = document.getElementById('identidad');
         let presentacion = document.getElementById('fondopresent');
         ajustarTamano(identidad, presentacion);
-        ajustarpt2(ventanaFrontal[0], ventanaTrasera[0]);
-        
-    } else {
-        /* MODO MÓVIL */
-
-        let ventanaFrontal = document.getElementsByClassName('flip-card-front');
-        let ventanaTrasera = document.getElementsByClassName('flip-card-back');
-        ajustarTamano(ventanaFrontal[0], ventanaTrasera[0])
-
-        let izquierda = document.getElementById('listaproyectos');
-        ajustarTamano(izquierda, ventanaTrasera[0]);
-        ajustarpt2(ventanaFrontal[0], ventanaTrasera[0]);
     }
 
-    let tarjeta1 = document.getElementsByClassName('flip-card-inner');
+    ajustarpt2(ventanaFrontal[0], ventanaTrasera[0]);
+
     let habilitar = document.getElementsByClassName('habilitar');
     let deshabilitar = document.getElementsByClassName('deshabilitar');
 
@@ -145,4 +130,5 @@ function main() {
 }
 main();
 
-document.addEventListener('resize', main());
+/* Llama a main cuando cambia el tamaño de ventan */
+window.onresize = main;
